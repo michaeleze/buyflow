@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 interface SummaryStepProps {
     collectedData: {
       user: {
-        firstName?: string | undefined;
-        lastName?: string | undefined;
+        firstName: string;
+        lastName: string;
       }
         email: string,
         age: number,
