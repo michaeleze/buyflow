@@ -1,22 +1,13 @@
 import React, { useState } from 'react';
+import { CallbackProps } from "./Buyflow";
 
-interface UserInfoStepProps {
-    cb: (field: string, value: string) => void,
-}
-
-interface IUser {
-  firstName: string;
-  lastName: string;
-}
-
-const UserInfoStep: React.FC<UserInfoStepProps> = (props) => {
-    const [user, setUser] = useState<IUser>({
+const UserInfoStep: React.FC<CallbackProps> = (props) => {
+    const [user, setUser] = useState<any>({
       firstName: null as any as string,
       lastName: null as any as string
     });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(user)
       setUser({...user, [event.target.name]: event.target.value});
     };
 
@@ -27,7 +18,7 @@ const UserInfoStep: React.FC<UserInfoStepProps> = (props) => {
         <p>
           Last Name: <input type='email' onChange={handleChange} name="lastName"></input>
         </p>
-        <button onClick={() => props.cb('user', 'user')}>Next</button>
+        <button onClick={() => props.cb('user', user)}>Next</button>
     </>;
 };
 
